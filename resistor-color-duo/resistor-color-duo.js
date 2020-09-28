@@ -15,14 +15,8 @@ export const COLORS = [
   "white",
 ];
 
-export const decodedValue = (colors) => {
-  if (colors.length < 2) {
-    throw "A little more color please...";
-  }
+export const colorCode = (color) => COLORS.indexOf(color);
 
-  const buf = [colors[0], colors[1]]
-    .map((col) => COLORS.indexOf(col).toString(10))
-    .join("");
-
-  return parseInt(buf, 10);
+export const decodedValue = ([color1, color2]) => {
+  return (colorCode(color1) * 10) + colorCode(color2);
 };
