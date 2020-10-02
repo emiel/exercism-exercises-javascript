@@ -1,18 +1,10 @@
-const transcribe = (n) => {
-  switch (n) {
-    case "G":
-      return "C";
-    case "C":
-      return "G";
-    case "T":
-      return "A";
-    case "A":
-      return "U";
-    default:
-      throw Error("Unknown nucleotide");
-  }
-};
+const DNA_RNA_MAP = new Map([
+  ["G", "C"],
+  ["C", "G"],
+  ["T", "A"],
+  ["A", "U"],
+]);
 
 export const toRna = (sequence) => {
-  return [...sequence].map(transcribe).join("");
+  return [...sequence].map((n) => DNA_RNA_MAP.get(n)).join("");
 };
