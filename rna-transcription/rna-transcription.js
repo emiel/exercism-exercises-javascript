@@ -5,6 +5,4 @@ const DNA_RNA_MAP = new Map([
   ["A", "U"],
 ]);
 
-export const toRna = (sequence) => {
-  return [...sequence].map((n) => DNA_RNA_MAP.get(n)).join("");
-};
+export const toRna = (seq) => [...seq].map((n) => DNA_RNA_MAP.get(n)).join("");
