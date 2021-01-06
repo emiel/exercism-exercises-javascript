@@ -1,30 +1,15 @@
 export class Matrix {
-  constructor(buf) {
-    this.buf = buf;
+  constructor(input) {
+    this.matrix = input
+      .split("\n")
+      .map((line) => line.split(" ").map((n) => Number(n)));
   }
 
   get rows() {
-    const result = [];
-
-    for (const line of this.buf.split("\n")) {
-      result.push(line.split(" ").map((n) => Number(n)));
-    }
-
-    return result;
+    return this.matrix;
   }
 
   get columns() {
-    /*
-     * 1 2 23
-     * 4 35 6
-     * 77 8 9
-     *
-     * =>
-     *
-     * 1 4 77
-     * 2 35 8
-     * 23 6 9
-     */
     const result = [];
 
     let colCount = 0;
